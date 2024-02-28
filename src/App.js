@@ -7,7 +7,9 @@ import { Footer } from './components/Footer';
 
 function App() {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+
   const [element, setElement] = useState({});
+
   const [theme, setTheme] = useState(() => {
     const storedTheme = localStorage.getItem("theme");
     return storedTheme ? JSON.parse(storedTheme) : "light";
@@ -24,8 +26,8 @@ function App() {
   return (
     <div className="App">
       <Header theme={theme} setTheme={setTheme} />
-      <AddTask tasks={tasks} setTasks={setTasks} element={element} setElement={setElement} />
-      <ShowTask tasks={tasks} setTasks={setTasks} element={element} setElement={setElement} />
+      <AddTask tasks={tasks} setTasks={setTasks} element={element} setElement={setElement} theme={theme}/>
+      <ShowTask tasks={tasks} setTasks={setTasks} element={element} setElement={setElement} theme={theme}/>
       <Footer theme={theme} />
     </div>
   );

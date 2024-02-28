@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import Logo from '../assets/lipsilverhand.png'
 
 export const Header = ({theme, setTheme}) => {
 
@@ -9,8 +8,8 @@ export const Header = ({theme, setTheme}) => {
   }, [theme]);
 
   return (
-    <header>
-        <img className='logo' src={Logo} alt="" />
+    <header className={`header ${theme}`}>
+        <a className={`link ${theme}`} href="">TaskList by Lipsilverhand</a>
         <div className="themeSelector">
             <div onClick={() => setTheme("light")} className={theme === "light"}></div>
             <div onClick={() => setTheme("pink")} className={theme === "pink"}></div>

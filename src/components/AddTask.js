@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AddTask = ({tasks, setTasks, element, setElement}) => {
+export const AddTask = ({tasks, setTasks, element, setElement, theme}) => {
   const [process, setProcess] = useState('');
 
   const handleSubmit = (event) => {
@@ -33,8 +33,8 @@ export const AddTask = ({tasks, setTasks, element, setElement}) => {
   };
 
   return (
-    <section className="addTask">
-        <form onSubmit={handleSubmit} className="addForm" action="">
+    <section className={`addTask ${theme}`}>
+        <form onSubmit={handleSubmit} className={`addForm ${theme}`} action="">
             <input type="text" name="task" placeholder="Add new task here..." autoComplete="off" value={element.name || ""} onChange={event => setElement({...element, name: event.target.value})}/>
             <select className="process" onChange={(event) => setProcess(event.target.value)} value={process}>
               <option value="">Select</option>

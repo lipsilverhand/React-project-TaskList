@@ -8,20 +8,7 @@
     scroll-behavior: smooth;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    height: 110px;
-    max-width: 1200px;
-    margin: 10px auto 100px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: rgb(145, 145, 145) 1px 3px 8px;
-}
-
 .themeSelector {
-    background-color: rgb(255, 255, 255);
     width: 300px;
     height: 90px;
     display: flex;
@@ -85,8 +72,17 @@ header {
     box-shadow: rgb(145, 145, 145) 1px 3px 8px;
 }
 
+.dark .addTask {
+    background-color: rgb(31, 36, 45);
+    box-shadow: none;
+}
+
 .addForm {
     background-color: white;
+}
+
+.dark .addForm {
+    background-color: rgb(31, 36, 45);
 }
 
 .addForm input {
@@ -130,6 +126,11 @@ header {
     box-shadow: rgb(145, 145, 145) 1px 3px 8px;
 }
 
+.dark .showTask {
+    background-color: rgb(31, 36, 45);
+    box-shadow: none;
+}
+
 .head {
     display: flex;
     justify-content: space-between;
@@ -139,10 +140,33 @@ header {
     box-shadow: rgb(0, 0, 0, 10%) 0px 1px;
 }
 
+.dark .head {
+    background-color: rgb(31, 36, 45);
+}
+
 .head div {
-    background-color: white;
     display: flex;
     align-items: center;
+}
+
+.dark .text {
+    background-color: rgb(31, 36, 45);
+}
+
+.pink .text {
+    background-color: white;
+}
+
+.wheat .text {
+    background-color: white;
+}
+
+.pink .text {
+    background-color: white;
+}
+
+.medium .text {
+    background-color: white;
 }
 
 .title {
@@ -150,11 +174,51 @@ header {
     margin-right: 15px;
 }
 
+.dark .title {
+    color: white;
+    background-color:  rgb(31, 36, 45);
+}
+
+.medium .title {
+    background-color: white;
+}
+
+.pink .title {
+    background-color: white;
+}
+
+.wheat .title {
+    background-color: white;
+}
+
 .counter {
-    background-color: grey;
+    border: 1.8px solid black;
+    background-color: white;
     font-size: 26px;
     border-radius: 60%;
     padding: 5px;
+}
+
+
+
+.dark .sbutton {
+    background-color: rgb(31, 36, 45);
+}
+
+.medium .sbutton {
+    background-color: white;
+}
+
+.wheat .sbutton {
+    background-color: white;
+}
+
+.pink .sbutton {
+    background-color: white;
+}
+
+.dark .sbutton .clearButton {
+    background-color: black;
 }
 
 .toggle_none {
@@ -190,6 +254,10 @@ header {
     background-color: white;
     margin: 10px auto 25px;
     max-width: 1100px;
+}
+
+.dark .tasks {
+    background-color: rgb(31, 36, 45);
 }
 
 .tasks li {
@@ -275,5 +343,59 @@ header {
     border-radius: 8px;
     border: 2px solid black;
     margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+    .header {
+        margin: 0;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link {
+        font-size: 28px;
+        margin: 5px 0;
+    }
+
+    .addTask {
+        border-radius: 0;
+        height: 130px;
+        text-align: center;
+        max-width: 450px;
+        margin: 30x auto 50px;
+    }
+    
+    .addTask input {
+        width: 400px;
+        margin: 5px 0 15px;
+    }
+
+    .process {
+        margin: 0 10px;
+        width: 110px;
+    }
+
+    .addForm button {
+        width: 110px;
+        margin: 0 10px;
+    }
+
+    .showTask {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .tasks {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tasks li {
+        width: 400px;
+        height: 80px;
+    }
 }
 
