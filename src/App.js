@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import { Header } from './components/Header';
+import { AddTask } from './components/AddTask';
+import { ShowTask } from './components/ShowTask';
+import { Footer } from './components/Footer';
 
 function App() {
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+  const [element, setElement] = useState({});
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem("theme");
+    return storedTheme ? JSON.parse(storedTheme) : "light";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header theme={theme} setTheme={setTheme} />
+      <AddTask tasks={tasks} setTasks={setTasks} element={element} setElement={setElement} />
+      <ShowTask tasks={tasks} setTasks={setTasks} element={element} setElement={setElement} />
+      <Footer theme={theme} />
     </div>
   );
 }
